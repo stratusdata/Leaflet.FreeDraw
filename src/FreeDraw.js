@@ -147,7 +147,8 @@ export default class FreeDraw extends FeatureGroup {
      */
     remove(polygon) {
         polygon ? removeFor(this.map, polygon) : super.remove();
-        updateFor(this.map, 'remove');
+        // Remove is called by Leaflet.Map unmount process
+        polygon && updateFor(this.map, 'remove');
     }
 
     /**
